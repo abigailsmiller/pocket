@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 body {
 	margin: 0;
 	background-color: #d0d4c6;
@@ -19,6 +27,48 @@ article {
     margin: 0;
 }
 
+.cover {
+	grid-column: 1 / 4;
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-image: url(pocket_change_cover.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 2em;
+	text-shadow: 1px 1px 2em #000;
+}
+
+h1 {
+    font-family: Adelle, Georgia, serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: calc(5vw + 1.8rem);
+	text-align: center;	
+	margin: 0 0 0.5em;
+	color: #b81237;
+}
+
+h1 span {
+	color: #ef3829;
+	position: relative;
+	top: 2rem;
+}
+
+h2 {
+	font-family: Adelle Sans, Helvetica, sans serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: calc(3vw + 1.8rem);
+	color: #fff;
+	text-align: center;	
+	margin: 0;
+}
+
 .wrapper {
 	grid-column: 2 / 3;
 }
@@ -28,7 +78,6 @@ header {
 	justify-content:space-between;
 	align-items: baseline;
 	font-family: Adelle Sans, Helvetica, sans serif;
-	position: fixed;
 	top: 0;
 	width: 100%;
 	padding: 0 2%;
@@ -65,6 +114,11 @@ ul.menu{
 img {
 	max-height: 100vh;
 	max-width: 100%;
+	border-style: none;
+}
+
+object {
+	width: 100%;
 	border-style: none;
 }
 
@@ -136,12 +190,7 @@ p.data {
 	letter-spacing:0.05em;
 }
 
-h1 {
-	font-family: Adelle, Georgia, serif;
-	font-weight: 400;
-	font-style: normal;
-	margin-top: 120px;
-}
+
 
 footer {
 	background-color: #000;
@@ -167,4 +216,197 @@ footer p {
 	grid-gap: 1em;
 	place-items: end;
 	margin: 2em 0;
+}
+
+#horizontal-wrapper {
+	grid-column: 1 / 4;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(5, 20em);
+	grid-template-rows: minmax(150px, 1fr);
+}
+
+.slide {
+    margin: 1em;
+    padding: 1em;
+    background-color: #F0DBD2;
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 1px 1em #abb593;
+}
+
+.slide p {
+	font-family: Adelle Sans, Helvetica, sans serif;
+	font-weight: 700;
+	font-size: 1.5em;
+}
+
+/* Animation for coins */
+
+@keyframes twist {
+    from {
+      -webkit-transform: rotate3d(0, 0, 1, -90deg);
+      transform: rotate3d(0, 0, 1, -90deg);
+      opacity: 0.5;
+}
+
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+}
+
+.move #half-percent {
+    transform-origin: right bottom;
+    animation-name: twist;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+/* Animation for carpool */
+
+@keyframes swing {
+    0 {transform: none;}
+    20% {transform: rotate(5deg);}
+    50% {transform: roatate(-2deg);}
+    70% {transform: rotateY(-30deg);}
+    100% {transform: none;}
+  }
+
+  .move #sign {
+    transform-origin: center bottom;
+    animation-name: swing;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 2;
+}
+
+/* Animation for founders */
+
+.move #pink-speech-bubble {
+animation-name: fade-in-out;
+animation-duration: 3s;
+animation-fill-mode: both;
+animation-timing-function: ease-in-out;
+opacity: 0;
+}
+
+@keyframes fade-in-out {
+0% {opacity: 0;}
+25% {opacity: 1;}
+75% {opacity: 0;}
+}
+
+#aqua-speech-bubble, #sage-speech-bubble {
+opacity: 0;
+}
+
+@keyframes fade-in {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+.move #aqua-speech-bubble {
+animation-name: fade-in;
+animation-duration: 3s;
+animation-delay: 1s;
+animation-fill-mode: forwards;
+}
+
+.move #sage-speech-bubble {
+animation-name: fade-in;
+animation-duration: 3s;
+animation-delay: 2s;
+animation-fill-mode: forwards;
+}
+
+/* Animation for paperwork */
+
+@keyframes straight-down {
+        from {transform: none;}
+        to {transform: translateY(-100%);}
+}
+
+.move #gold-sheet-2 {
+animation: straight-down 5s ease-in reverse backwards;
+}
+
+.move #blue-sheet-2 {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 2s;
+}
+
+.move #pale-pink-sheet {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 3s;
+}
+
+.move #sage-sheet-2 {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 4s; 
+}
+
+.move #light-red-sheet {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 5s;
+}
+
+.move #peach-sheet {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 6s;
+}
+
+.move #sage-sheet {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 6s; 
+}
+
+.move #pink-sheet {
+animation: straight-down 4s ease-in reverse backwards;
+animation-delay: 8s;
+}
+
+.move #blue-sheet {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 7s; 
+}
+
+.move #dark-red-sheet {
+animation: straight-down 4s ease-in reverse backwards;
+animation-delay: 9s;
+}
+
+.move #mid-red-sheet {
+animation: straight-down 5s ease-in reverse backwards;
+animation-delay: 7s; 
+}
+
+.move #gold-sheet {
+animation: straight-down 3s ease-in reverse backwards;
+animation-delay: 10s;
+}
+
+/* Animation for Zoom */
+
+.move #green-zoom-box, #green-zoom-box-2, #green-zoom-box-3, #green-zoom-box-4 {
+animation-name: fade-in-out;
+animation-duration: 12s;
+animation-iteration-count: 6;
+opacity: 0;
+}
+
+.move #green-zoom-box-2 {
+animation-delay: 3s;
+}
+
+.move #green-zoom-box-3 {
+animation-delay: 6s;
+}
+
+.move #green-zoom-box-4 {
+animation-delay: 9s;
 }
