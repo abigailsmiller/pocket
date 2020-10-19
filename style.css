@@ -225,7 +225,7 @@ footer p {
 	grid-column: 1 / 4;
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: repeat(5, 20em);
+	grid-template-columns: repeat(6, 20em);
 	grid-template-rows: minmax(150px, 1fr);
 }
 
@@ -243,6 +243,21 @@ footer p {
 	font-family: Adelle Sans, Helvetica, sans serif;
 	font-weight: 700;
 	font-size: 1.5em;
+}
+
+#cover-slide {
+	flex-direction: column;
+	text-align:center;
+	background-color: lavender;
+}
+
+#cover-slide h3 {
+	font-family: Adelle, Georgia, serif;
+	font-size: 2em;
+	color: #b81237;
+	border-top: 3px double #b81237;
+	border-bottom: 3px double #b81237;
+	padding: 6px 0;
 }
 
 /* Animation for coins */
@@ -412,4 +427,22 @@ animation-delay: 12s;
 
 .move #green-zoom-box-4 {
 animation-delay: 18s;
+}
+
+/* Animation for arrow */
+
+.move #arrow {
+  animation: slide 3s ease-in-out 5;
+  margin-left: 9px;
+}
+
+@keyframes slide {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(30px, 0);
+  }
 }
