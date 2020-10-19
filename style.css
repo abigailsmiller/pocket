@@ -34,13 +34,10 @@ article {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	background-image: url(pocket_change_cover.png);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	padding: 2em;
-	text-shadow: 1px 1px 2em #000;
 }
 
 h1 {
@@ -51,12 +48,18 @@ h1 {
 	text-align: center;	
 	margin: 0 0 0.5em;
 	color: #b81237;
+	padding-top: 2rem;
 }
 
 h1 span {
 	color: #ef3829;
+}
+
+@media (min-width: 320px) {
+	h1 span {
 	position: relative;
 	top: 2rem;
+	}
 }
 
 h2 {
@@ -289,7 +292,7 @@ footer p {
 
 .move #pink-speech-bubble {
 animation-name: fade-in-out;
-animation-duration: 3s;
+animation-duration: 4s;
 animation-fill-mode: both;
 animation-timing-function: ease-in-out;
 opacity: 0;
@@ -298,7 +301,7 @@ opacity: 0;
 @keyframes fade-in-out {
 0% {opacity: 0;}
 25% {opacity: 1;}
-75% {opacity: 0;}
+100% {opacity: 0;}
 }
 
 #aqua-speech-bubble, #sage-speech-bubble {
@@ -312,15 +315,15 @@ to {opacity: 1;}
 
 .move #aqua-speech-bubble {
 animation-name: fade-in;
-animation-duration: 3s;
+animation-duration: 4s;
 animation-delay: 1s;
 animation-fill-mode: forwards;
 }
 
 .move #sage-speech-bubble {
 animation-name: fade-in;
-animation-duration: 3s;
-animation-delay: 2s;
+animation-duration: 4s;
+animation-delay: 4s;
 animation-fill-mode: forwards;
 }
 
@@ -392,21 +395,21 @@ animation-delay: 10s;
 
 /* Animation for Zoom */
 
-.move #green-zoom-box, #green-zoom-box-2, #green-zoom-box-3, #green-zoom-box-4 {
+.move #green-zoom-box, .move #green-zoom-box-2, .move #green-zoom-box-3, .move #green-zoom-box-4 {
 animation-name: fade-in-out;
-animation-duration: 12s;
-animation-iteration-count: 6;
+animation-duration: 7s;
+transition-timing-function: linear;
 opacity: 0;
 }
 
 .move #green-zoom-box-2 {
-animation-delay: 3s;
-}
-
-.move #green-zoom-box-3 {
 animation-delay: 6s;
 }
 
+.move #green-zoom-box-3 {
+animation-delay: 12s;
+}
+
 .move #green-zoom-box-4 {
-animation-delay: 9s;
+animation-delay: 18s;
 }
