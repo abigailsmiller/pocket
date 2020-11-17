@@ -233,7 +233,7 @@ footer p {
 	grid-column: 1 / 4;
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: repeat(6, 20em);
+	grid-template-columns: repeat(8, 20em);
 	grid-template-rows: minmax(150px, 1fr);
 }
 
